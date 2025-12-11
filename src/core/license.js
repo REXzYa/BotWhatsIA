@@ -99,10 +99,15 @@ export function validateLicense(license) {
  */
 export function getActiveModules(license) {
   if (!license || !license.modulos) {
-    return ['ia', 'catalogo']; // Módulos base sempre ativos
+    return ['catalogo']; // Apenas catálogo é base (gratuito)
   }
 
-  return license.modulos
+  // Se modulos é objeto, converte para array
+  const modulosArray = Array.isArray(license.modulos) 
+    ? license.modulos 
+    : Object.keys(license.modulos).map(id => ({ id, ...license.modulos[id] }));
+
+  return modulosArray
     .filter(modulo => modulo.ativo === true)
     .map(modulo => modulo.id);
 }
@@ -115,11 +120,17 @@ export function getActiveModules(license) {
  */
 export function isModuleActive(moduleId, license) {
   if (!license || !license.modulos) {
-    // Se não tem licença, apenas módulos base
-    return ['ia', 'catalogo'].includes(moduleId);
+    // Se não tem licença, apenas catálogo é base (gratuito)
+    return ['catalogo'].includes(moduleId);
   }
 
-  const modulo = license.modulos.find(m => m.id === moduleId);
+  // Suporta tanto array quanto objeto
+  let modulo;
+  if (Array.isArray(license.modulos)) {
+    modulo = license.modulos.find(m => m.id === moduleId);
+  } else {
+    modulo = license.modulos[moduleId];
+  }
   
   if (!modulo) {
     logger.warn(`⚠️ Módulo "${moduleId}" não encontrado na licença`);
@@ -140,7 +151,13 @@ export function getModuleInfo(moduleId, license) {
     return null;
   }
 
-  return license.modulos.find(m => m.id === moduleId) || null;
+  // Suporta tanto array quanto objeto
+  if (Array.isArray(license.modulos)) {
+    return license.modulos.find(m => m.id === moduleId) || null;
+  } else {
+    const modulo = license.modulos[moduleId];
+    return modulo ? { id: moduleId, ...modulo } : null;
+  }
 }
 
 /**
@@ -182,7 +199,11 @@ export function displayLicenseInfo(license) {
   });
 
   // Módulos inativos que requerem pagamento
-  const modulosInativos = license.modulos
+  const modulosArray = Array.isArray(license.modulos)
+    ? license.modulos
+    : Object.keys(license.modulos).map(id => ({ id, ...license.modulos[id] }));
+
+  const modulosInativos = modulosArray
     .filter(m => !m.ativo && m.requer_pagamento);
   
   if (modulosInativos.length > 0) {
@@ -218,32 +239,29 @@ function createDemoLicense() {
         cnpj: ''
       }
     },
-    modulos: [
-      {
-        id: 'ia',
-        ativo: true,
-        nome: 'Chatbot IA',
-        descricao: 'Assistente com Inteligência Artificial',
-        versao: '1.0.0',
-        requer_pagamento: false
-      },
-      {
-        id: 'catalogo',
+    modulos: {
+      catalogo: {
         ativo: true,
         nome: 'Catálogo de Produtos',
         descricao: 'Exibição de produtos com imagens e preços',
         versao: '1.0.0',
         requer_pagamento: false
       },
-      {
-        id: 'agendamento',
+      ia: {
+        ativo: false,
+        nome: 'Chatbot IA',
+        descricao: 'Assistente com Inteligência Artificial (GPT-4 ou Llama 3.1)',
+        versao: '1.0.0',
+        requer_pagamento: true
+      },
+      agendamento: {
         ativo: false,
         nome: 'Agendamento de Serviços',
         descricao: 'Sistema de agendamento automático',
         versao: '1.0.0',
         requer_pagamento: true
       }
-    ],
+    },
     configuracoes: {
       verificar_licenca_ao_iniciar: true,
       enviar_analytics: false

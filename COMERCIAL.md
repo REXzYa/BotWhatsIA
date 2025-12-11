@@ -10,21 +10,25 @@ Script completo, documentado e pronto para instalar no seu servidor. Automatize 
 
 ## ✨ O que está INCLUSO?
 
-### 🤖 **1. Chatbot com Inteligência Artificial**
-- ✅ Responde perguntas automaticamente 24/7
-- ✅ Usa GPT-4 (OpenAI) ou Llama 3.1 (Groq)
-- ✅ Personalização total da personalidade
-- ✅ Sistema de intenções inteligente
-- ✅ Comandos globais (menu, atendente)
-
-### 📦 **2. Catálogo de Produtos Completo**
+### 📦 **Catálogo de Produtos Completo** ✅ GRÁTIS
 - ✅ Exibe produtos com imagens
 - ✅ Preços e descrições detalhadas
 - ✅ Navegação por números
 - ✅ Fácil atualização via JSON
 - ✅ Formatação automática de moeda
 
-### 🎛️ **3. Sistema de Roteamento Inteligente**
+---
+
+## 💎 O que você GANHA ao COMPRAR (R$ 29,90)
+
+### 🤖 **Chatbot com Inteligência Artificial**
+- ✅ Responde perguntas automaticamente 24/7
+- ✅ Usa GPT-4 (OpenAI) ou Llama 3.1 (Groq)
+- ✅ Personalização total da personalidade
+- ✅ Sistema de intenções inteligente
+- ✅ Comandos globais (menu, atendente)
+
+### 🎛️ **Sistema de Roteamento Inteligente**
 - ✅ Menu interativo automático
 - ✅ Transferência para atendente humano
 - ✅ Filtro de grupos (responde apenas DMs)
@@ -47,24 +51,27 @@ Script completo, documentado e pronto para instalar no seu servidor. Automatize 
 
 ### 🎉 OFERTA ESPECIAL
 
-# ~~R$ 97,00~~ R$ 29,90
+# R$ 29,90
 
-**SCRIPT PRONTO - SEM INSTALAÇÃO**
+**MÓDULO IA COMPLETO**
 
 <sub>Pagamento único • Acesso imediato • Sem mensalidades</sub>
+
+💡 **Versão GRÁTIS:** Catálogo de Produtos (já disponível no GitHub)
 
 </div>
 
 ---
 
-## 📦 O que você RECEBE?
+## 📦 O que você RECEBE ao COMPRAR?
 
-✅ **Código-fonte completo** (Node.js)
-✅ **Documentação detalhada** (README + Guias)
-✅ **Arquivos de configuração** prontos
-✅ **Exemplos práticos** de uso
-✅ **Módulos plug-and-play**
-✅ **Licença MIT** (use comercialmente)
+✅ **Módulo IA completo** (código-fonte)
+✅ **Integração GPT-4 ou Llama 3.1**
+✅ **Sistema de prompts personalizáveis**
+✅ **Detecção de intenções**
+✅ **Documentação de uso**
+✅ **Suporte via email (7 dias)**
+✅ **Atualizações gratuitas (30 dias)**
 
 ---
 
@@ -79,20 +86,30 @@ Script completo, documentado e pronto para instalar no seu servidor. Automatize 
 
 ---
 
-## � Para Quem é?
+## 🆓 Versão GRÁTIS vs 💎 Versão PAGA
+
+| Funcionalidade | Grátis (GitHub) | Pago (R$ 29,90) |
+|----------------|-----------------|-----------------|
+| **Catálogo de Produtos** | ✅ Completo | ✅ Completo |
+| **Menu Interativo** | ✅ Sim | ✅ Sim |
+| **Transferência Humano** | ✅ Sim | ✅ Sim |
+| **Sistema de Logs** | ✅ Sim | ✅ Sim |
+| **Chatbot IA** | ❌ Bloqueado | ✅ **LIBERADO** |
+| **GPT-4 / Llama 3.1** | ❌ Não | ✅ **SIM** |
+| **Personalização IA** | ❌ Não | ✅ **SIM** |
+| **Detecção Intenções** | ❌ Não | ✅ **SIM** |
+| **Suporte** | ❌ Não | ✅ **7 dias** |
+
+---
+
+## 🎯 Para Quem é?
 
 ### ✅ **Ideal para:**
-- 🛒 Lojas virtuais (e-commerces)
-- 🍕 Restaurantes e delivery
-- 💼 Prestadores de serviços
-- � Escolas e cursos online
-- 🏪 Qualquer negócio com WhatsApp
-
-### ✅ **Você precisa de:**
-- Atendimento automatizado 24/7
-- Reduzir custos com atendentes
-- Catálogo digital de produtos
-- Respostas rápidas e precisas
+- 🛒 Lojas virtuais que precisam de FAQ automatizado
+- 🍕 Restaurantes com dúvidas frequentes
+- 💼 Prestadores de serviços que recebem muitas perguntas
+- 📚 Escolas que querem atendimento 24/7
+- 🏪 Qualquer negócio que quer reduzir custos com atendentes
 
 ---
 
@@ -145,11 +162,11 @@ Script completo, documentado e pronto para instalar no seu servidor. Automatize 
 
 ## ⚠️ O que NÃO está incluso
 
-❌ Instalação no servidor (você instala)
-❌ Suporte técnico (docs são completas)
-❌ API Keys (OpenAI/Groq por sua conta)
+❌ Instalação no servidor (você instala seguindo docs)
+❌ Suporte técnico prolongado (apenas 7 dias)
+❌ API Keys OpenAI/Groq (você cria grátis)
 ❌ Servidor VPS (use o seu)
-❌ Customizações extras
+❌ Customizações sob demanda
 
 ---
 
@@ -186,11 +203,15 @@ Estamos trabalhando em novos módulos! Em breve:
 
 <div align="center">
 
-### **R$ 29,90** - Script Pronto
+### **R$ 29,90** - Módulo IA
 
 **Escolha sua plataforma favorita:**
 
 </div>
+
+> 💡 **Quer testar antes?** Clone o repositório grátis e use o Catálogo! Compre a IA só se precisar.
+
+
 
 ### 🛒 **Plataformas Disponíveis:**
 

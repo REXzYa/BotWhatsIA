@@ -145,6 +145,15 @@ export async function handleIncomingMessage({ from, message }) {
 
   // 5. Opção "1" → IA
   if (normalized === '1') {
+    // Verifica se módulo IA está ativo
+    const license = global.botLicense || null;
+    if (!isModuleActive('ia', license)) {
+      logger.warn({ from }, '🔒 Tentativa de acessar módulo IA bloqueado');
+      const mensagemBloqueio = getModuleBlockedMessage('ia', license);
+      await global.sendWhatsApp(from, mensagemBloqueio);
+      return;
+    }
+
     const iaInstructions = `Perfeito! Estou aqui para responder suas dúvidas.
 
 💡 *Dica:* A qualquer momento você pode:
@@ -182,6 +191,15 @@ O que você gostaria de saber?`;
 
   // 8. Detecta frases relacionadas a dúvidas → IA
   if (matchesIAIntent(normalized)) {
+    // Verifica se módulo IA está ativo
+    const license = global.botLicense || null;
+    if (!isModuleActive('ia', license)) {
+      logger.warn({ from }, '🔒 Tentativa de acessar IA por intent bloqueado');
+      const mensagemBloqueio = getModuleBlockedMessage('ia', license);
+      await global.sendWhatsApp(from, mensagemBloqueio);
+      return;
+    }
+
     await handleIA(text, from);
     logger.info({ from }, 'Pergunta direcionada automaticamente para IA.');
     return;
@@ -221,6 +239,15 @@ O que você gostaria de saber?`;
   }
 
   // 11. Fallback: envia para IA se não corresponder a nenhum fluxo
+  const license = global.botLicense || null;
+  if (!isModuleActive('ia', license)) {
+    logger.warn({ from }, '🔒 Fallback para IA bloqueado - enviando para atendente');
+    await global.sendWhatsApp(from, `⚠️ Desculpe, não entendi sua mensagem.
+
+Digite *menu* para ver as opções disponíveis ou *atendente* para falar com um humano.`);
+    return;
+  }
+
   await handleIA(text, from);
   logger.info({ from }, 'Mensagem enviada para IA como fallback.');
 }

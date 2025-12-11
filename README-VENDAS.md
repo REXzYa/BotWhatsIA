@@ -17,33 +17,23 @@
 
 ## 🎯 O que é?
 
-**Bot profissional de WhatsApp** com Inteligência Artificial e Catálogo de Produtos integrados. Script completo, documentado e pronto para instalar no seu servidor.
+**Bot profissional de WhatsApp** com Catálogo de Produtos (GRÁTIS) + módulo IA opcional (R$ 29,90). Script completo, documentado e pronto para instalar no seu servidor.
 
 ### ✨ Principais Características
 
-- 🤖 **IA Conversacional** (GPT-4 ou Llama 3.1)
-- 📦 **Catálogo Digital** com imagens e preços
-- 🎛️ **Menu Interativo** inteligente
-- 🔄 **Transferência para Humano** quando necessário
-- 🛡️ **Filtro Anti-Grupos** automático
-- 📝 **Logs Estruturados** para debug
-- 🧪 **Modo de Teste** sem usar WhatsApp
+- 📦 **Catálogo Digital** com imagens e preços ✅ **GRÁTIS**
+- 🤖 **IA Conversacional** (GPT-4 ou Llama 3.1) � **R$ 29,90**
+- 🎛️ **Menu Interativo** inteligente ✅ **GRÁTIS**
+- 🔄 **Transferência para Humano** quando necessário ✅ **GRÁTIS**
+- 🛡️ **Filtro Anti-Grupos** automático ✅ **GRÁTIS**
+- 📝 **Logs Estruturados** para debug ✅ **GRÁTIS**
+- 🧪 **Modo de Teste** sem usar WhatsApp ✅ **GRÁTIS**
 
 ---
 
 ## 🚀 Funcionalidades
 
-### 🤖 **Chatbot com Inteligência Artificial**
-
-```
-✅ Responde perguntas automaticamente 24/7
-✅ Usa GPT-4 (OpenAI) ou Llama 3.1 (Groq)
-✅ Personalização total da personalidade
-✅ Sistema de intenções inteligente
-✅ Comandos globais (menu, atendente)
-```
-
-### 📦 **Catálogo de Produtos Completo**
+### 📦 **Catálogo de Produtos Completo** ✅ GRÁTIS
 
 ```
 ✅ Exibe produtos com imagens
@@ -53,7 +43,17 @@
 ✅ Descrições detalhadas
 ```
 
-### 🎛️ **Sistema de Roteamento Inteligente**
+### 🤖 **Chatbot com Inteligência Artificial** 💎 R$ 29,90
+
+```
+✅ Responde perguntas automaticamente 24/7
+✅ Usa GPT-4 (OpenAI) ou Llama 3.1 (Groq)
+✅ Personalização total da personalidade
+✅ Sistema de intenções inteligente
+✅ Comandos globais (menu, atendente)
+```
+
+### 🎛️ **Sistema de Roteamento Inteligente** ✅ GRÁTIS
 
 ```
 ✅ Menu interativo automático
@@ -160,28 +160,44 @@ O QR Code aparecerá no terminal. Escaneie com WhatsApp!
 
 ---
 
-## 🎁 O que está INCLUSO?
+## � Versão GRÁTIS (GitHub)
 
-✅ Código-fonte completo (Node.js)
-✅ Documentação detalhada em PT-BR
-✅ Arquivos de configuração prontos
-✅ 3 produtos de exemplo configurados
-✅ Módulos plug-and-play
-✅ Sistema de logs avançado
-✅ Modo de teste sem WhatsApp
-✅ Licença MIT (uso comercial permitido)
+✅ **Catálogo de Produtos** - Código completo
+✅ **Menu Interativo** - Sistema de navegação
+✅ **Transferência para Humano** - Encaminhamento
+✅ **Logs Estruturados** - Debug facilitado
+✅ **Modo de Teste** - Sem usar WhatsApp
+✅ **Documentação** - +40KB em PT-BR
+✅ **Licença MIT** - Uso comercial permitido
+❌ **IA Bloqueada** - Requer compra
+
+## 💎 Versão PAGA (R$ 29,90)
+
+✅ **Tudo da versão grátis** +
+✅ **Módulo IA completo** - GPT-4 ou Llama 3.1
+✅ **Sistema de prompts** - Personalização total
+✅ **Detecção de intenções** - Roteamento inteligente
+✅ **Fallback IA** - Responde o que não entende
+✅ **Suporte** - 7 dias via email
+✅ **Atualizações** - 30 dias grátis
 
 ---
 
-## ⚠️ O que NÃO está incluso
+## ⚠️ Versão Grátis - Limitações
 
-❌ Instalação no servidor (você instala)
-❌ Suporte técnico dedicado
-❌ API Keys (OpenAI/Groq por sua conta)
-❌ Servidor VPS (use o seu)
-❌ Customizações extras
+❌ Módulo IA não incluído (mostra mensagem de venda)
+❌ Sem suporte técnico
+❌ Sem atualizações prioritárias
 
-> **Nota:** O código é totalmente documentado e fácil de seguir!
+## ⚠️ Versão Paga - O que NÃO inclui
+
+❌ Instalação no servidor (você instala com as docs)
+❌ API Keys OpenAI/Groq (você cria, tem plano grátis)
+❌ Servidor VPS (precisa ter o seu)
+❌ Suporte prolongado (apenas 7 dias iniciais)
+❌ Customizações sob demanda
+
+> **Nota:** O código é totalmente documentado! Instalação leva 5-10 minutos.
 
 ---
 
@@ -189,15 +205,25 @@ O QR Code aparecerá no terminal. Escaneie com WhatsApp!
 
 <div align="center">
 
-### 🎉 OFERTA DE LANÇAMENTO
+### � TESTE GRÁTIS PRIMEIRO!
 
-# ~~R$ 97,00~~ R$ 29,90
+**Clone o repositório e teste o Catálogo!**
 
-**SCRIPT PRONTO - SEM MENSALIDADES**
+```bash
+git clone https://github.com/milenemolina/BotWhatsIA.git
+```
 
-<sub>Pagamento único • Acesso imediato • Código aberto</sub>
+---
 
-[🛒 **COMPRAR AGORA**](SUA_PAGINA_DE_VENDAS)
+### 💎 Gostou? Desbloqueie a IA!
+
+# R$ 29,90
+
+**MÓDULO IA COMPLETO**
+
+<sub>Pagamento único • Acesso imediato • Suporte 7 dias</sub>
+
+[🛒 **COMPRAR MÓDULO IA**](SUA_PAGINA_DE_VENDAS)
 
 </div>
 
@@ -426,18 +452,18 @@ Em desenvolvimento para 2025:
 
 ---
 
-## 🌟 Comparação com Concorrentes
+## 📊 Comparação com Concorrentes
 
 | Recurso | **Nosso Bot** | Outros |
 |---------|--------------|--------|
-| **Preço** | R$ 29,90 (único) | R$ 97+ ou mensal |
-| **Código Aberto** | ✅ Sim | ❌ Não |
-| **IA Inclusa** | ✅ 2 opções | ⚠️ Às vezes |
-| **Catálogo** | ✅ Sim | ⚠️ Raramente |
+| **Versão Grátis** | ✅ Catálogo completo | ❌ Não existe |
+| **Testar Antes** | ✅ GitHub público | ❌ Impossível |
+| **Preço IA** | R$ 29,90 (único) | R$ 97+ ou mensal |
+| **Código Aberto** | ✅ MIT | ❌ Fechado |
+| **Catálogo** | ✅ Grátis | R$ 47+ |
 | **Docs PT-BR** | ✅ +40KB | ❌ Pouca |
-| **Modo Teste** | ✅ Sim | ❌ Não |
-| **Uso Comercial** | ✅ MIT | ❌ Restrito |
-| **Mensalidade** | ❌ Não | ✅ Sempre |
+| **Modo Teste** | ✅ Sem WhatsApp | ❌ Não |
+| **Mensalidade** | ❌ Nunca | ✅ Sempre |
 
 ---
 

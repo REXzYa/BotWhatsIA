@@ -10,17 +10,18 @@
     }
   },
   "modulos": {
-    "ia": {
-      "ativo": true,
-      "nome": "Chatbot IA Inteligente",
-      "descricao": "Responde perguntas com GPT/Llama",
-      "versao": "1.0.0"
-    },
     "catalogo": {
       "ativo": true,
       "nome": "Catálogo de Produtos",
       "descricao": "Exibe produtos com imagens e preços",
       "versao": "1.0.0"
+    },
+    "ia": {
+      "ativo": false,
+      "nome": "Chatbot IA Inteligente",
+      "descricao": "Responde perguntas com GPT-4 ou Llama 3.1 (REQUER PAGAMENTO)",
+      "versao": "1.0.0",
+      "requer_pagamento": true
     },
     "agendamento": {
       "ativo": false,
