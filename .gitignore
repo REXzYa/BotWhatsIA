@@ -3,14 +3,19 @@ node_modules/
 package-lock.json
 yarn.lock
 
-# Ambiente
+# Ambiente (DADOS SENSÍVEIS - NUNCA COMMITAR!)
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
 
 # Autenticação WhatsApp (SENSÍVEL - NÃO COMMITAR!)
 auth/
+auth_info/
+*.session
 *.json.bak
+*.session.json
 
 # Logs
 logs/
@@ -60,3 +65,9 @@ test-automatizado.js
 test-contexto.js
 test-produto.js
 MELHORIAS.md
+CHECKLIST-PUBLICACAO.md
+estrutura-pastas.txt
+GUIA-PUBLICACAO-GITHUB.md
+INSTALACAO-MODULO-IA.md
+preparar-versao-publica.ps1
+RESUMO-PUBLICACAO.md
