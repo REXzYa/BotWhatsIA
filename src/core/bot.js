@@ -8,6 +8,7 @@ import path from 'path';
 import qrcode from 'qrcode-terminal';
 import logger from '../utils/logger.js';
 import { initRouter, handleIncomingMessage } from './router.js';
+import { loadLicense, validateLicense, displayLicenseInfo } from './license.js';
 
 const authFolder = path.join(process.cwd(), 'auth');
 
@@ -27,6 +28,30 @@ function extractMessageText(message) {
 
 export async function startBot() {
   logger.info('🚀 Iniciando bot de WhatsApp com IA...');
+  
+  // ========================================
+  // 1. VERIFICAÇÃO DE LICENÇA
+  // ========================================
+  const license = loadLicense();
+  const validacao = validateLicense(license);
+
+  // Exibe informações da licença
+  if (license.configuracoes?.verificar_licenca_ao_iniciar) {
+    displayLicenseInfo(license);
+  }
+
+  // Se licença inválida, exibe aviso mas continua (módulos base funcionam)
+  if (!validacao.valida) {
+    logger.warn('⚠️ Licença inválida ou expirada. Apenas módulos base funcionarão.');
+    console.log(`\n❌ ${validacao.motivo}\n`);
+  }
+
+  // Armazena licença globalmente para o router usar
+  global.botLicense = license;
+
+  // ========================================
+  // 2. INICIALIZAÇÃO DO BOT
+  // ========================================
   await ensureAuthFolder();
 
   const { state, saveCreds } = await useMultiFileAuthState(authFolder);

@@ -3,6 +3,7 @@ import { normalizeText } from '../utils/helpers.js';
 import { sendCatalogMenu, sendProductById } from '../modules/catalog/catalogController.js';
 import { handleIA } from '../modules/ia/iaController.js';
 import { transferToHuman } from '../modules/humano/humanoController.js';
+import { isModuleActive, getModuleBlockedMessage } from './license.js';
 
 const WELCOME_MESSAGE = `Olá! Como posso te ajudar?
 1️⃣ Tenho uma dúvida
@@ -159,6 +160,15 @@ O que você gostaria de saber?`;
 
   // 6. Opção "2" → Catálogo
   if (normalized === '2') {
+    // Verifica se módulo está ativo
+    const license = global.botLicense || null;
+    if (!isModuleActive('catalogo', license)) {
+      logger.warn({ from }, '🔒 Tentativa de acessar módulo Catálogo bloqueado');
+      const mensagemBloqueio = getModuleBlockedMessage('catalogo', license);
+      await global.sendWhatsApp(from, mensagemBloqueio);
+      return;
+    }
+
     await sendCatalogMenu(from);
     logger.info({ from }, 'Catálogo enviado via opção 2.');
     return;
@@ -179,6 +189,15 @@ O que você gostaria de saber?`;
 
   // 9. Detecta frases relacionadas ao catálogo
   if (matchesCatalogIntent(normalized)) {
+    // Verifica se módulo está ativo
+    const license = global.botLicense || null;
+    if (!isModuleActive('catalogo', license)) {
+      logger.warn({ from }, '🔒 Tentativa de acessar catálogo por intent bloqueado');
+      const mensagemBloqueio = getModuleBlockedMessage('catalogo', license);
+      await global.sendWhatsApp(from, mensagemBloqueio);
+      return;
+    }
+
     await sendCatalogMenu(from);
     logger.info({ from }, 'Catálogo enviado por detecção de intent.');
     return;
@@ -187,6 +206,15 @@ O que você gostaria de saber?`;
   // 10. Detecta "produto X", "ver X", "item X" ou apenas números de produtos
   const productId = extractProductId(text);
   if (productId) {
+    // Verifica se módulo catálogo está ativo
+    const license = global.botLicense || null;
+    if (!isModuleActive('catalogo', license)) {
+      logger.warn({ from, productId }, '🔒 Tentativa de acessar produto com módulo bloqueado');
+      const mensagemBloqueio = getModuleBlockedMessage('catalogo', license);
+      await global.sendWhatsApp(from, mensagemBloqueio);
+      return;
+    }
+
     await sendProductById(from, productId);
     logger.info({ from, productId }, 'Produto específico enviado.');
     return;

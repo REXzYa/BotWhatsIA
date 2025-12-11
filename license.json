@@ -1,0 +1,86 @@
+{
+  "licenca": {
+    "chave": "DEMO-VERSION",
+    "tipo": "demo",
+    "expiracao": null,
+    "cliente": {
+      "nome": "Cliente Demo",
+      "email": "demo@exemplo.com",
+      "cnpj": ""
+    }
+  },
+  "modulos": {
+    "ia": {
+      "ativo": true,
+      "nome": "Chatbot IA Inteligente",
+      "descricao": "Responde perguntas com GPT/Llama",
+      "versao": "1.0.0"
+    },
+    "catalogo": {
+      "ativo": true,
+      "nome": "Catálogo de Produtos",
+      "descricao": "Exibe produtos com imagens e preços",
+      "versao": "1.0.0"
+    },
+    "agendamento": {
+      "ativo": false,
+      "nome": "Agendamento de Serviços",
+      "descricao": "Agenda horários automaticamente",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "restaurante": {
+      "ativo": false,
+      "nome": "Pedidos para Restaurantes",
+      "descricao": "Cardápio digital + pedidos",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "leads": {
+      "ativo": false,
+      "nome": "Captura de Leads",
+      "descricao": "Salva leads no Google Sheets",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "imoveis": {
+      "ativo": false,
+      "nome": "Bot Imobiliária",
+      "descricao": "Envia imóveis por filtros",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "infoprodutos": {
+      "ativo": false,
+      "nome": "Bot Infoprodutos",
+      "descricao": "Envia aulas e materiais",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "academias": {
+      "ativo": false,
+      "nome": "Bot Academias",
+      "descricao": "Planos e horários",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "clinicas": {
+      "ativo": false,
+      "nome": "Bot Clínicas",
+      "descricao": "Agendamento médico + IA",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    },
+    "pagamentos": {
+      "ativo": false,
+      "nome": "Pagamentos Automáticos",
+      "descricao": "PIX + confirmação automática",
+      "versao": "1.0.0",
+      "requer_pagamento": true
+    }
+  },
+  "configuracoes": {
+    "verificar_licenca_ao_iniciar": true,
+    "enviar_analytics": false
+  }
+}
