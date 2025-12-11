@@ -1,0 +1,27 @@
+{
+  "name": "bot-whatsapp-ia",
+  "version": "1.0.0",
+  "description": "Bot de WhatsApp com integração de IA usando Baileys e OpenAI/Groq.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "ai",
+    "openai",
+    "groq"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "pino": "^9.4.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

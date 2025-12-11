@@ -1,0 +1,25 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Tênis Esportivo",
+      "descricao": "Tênis leve com amortecimento responsivo, ideal para corridas e treinos diários.",
+      "preco": 199.9,
+      "img": "https://via.placeholder.com/600x600.png?text=Tenis+Esportivo"
+    },
+    {
+      "id": 2,
+      "nome": "Camiseta DryFit",
+      "descricao": "Camiseta com tecnologia DryFit, mantém o corpo seco mesmo em treinos intensos.",
+      "preco": 89.5,
+      "img": "https://via.placeholder.com/600x600.png?text=Camiseta+DryFit"
+    },
+    {
+      "id": 3,
+      "nome": "Garrafa Térmica 1L",
+      "descricao": "Mantém bebidas geladas por até 12h e quentes por até 8h. Aço inox com vedação a vácuo.",
+      "preco": 79.0,
+      "img": "https://via.placeholder.com/600x600.png?text=Garrafa+Termica"
+    }
+  ]
+}

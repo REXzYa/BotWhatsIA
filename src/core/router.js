@@ -1,0 +1,198 @@
+import logger from '../utils/logger.js';
+import { normalizeText } from '../utils/helpers.js';
+import { sendCatalogMenu, sendProductById } from '../modules/catalog/catalogController.js';
+import { handleIA } from '../modules/ia/iaController.js';
+import { transferToHuman } from '../modules/humano/humanoController.js';
+
+const WELCOME_MESSAGE = `Olá! Como posso te ajudar?
+1️⃣ Tenho uma dúvida
+2️⃣ Ver catálogo
+3️⃣ Falar com atendente`;
+
+const GREETING_KEYWORDS = ['oi', 'ola', 'olá', 'bom dia', 'boa tarde', 'boa noite'];
+const MENU_KEYWORDS = ['menu', 'voltar', 'inicio', 'início', 'opcoes', 'opções'];
+const HUMAN_KEYWORDS = ['humano', 'atendente', 'pessoa', 'falar com alguem', 'falar com alguém', 'operador'];
+const IA_INTENT_KEYWORDS = [
+  'tenho uma duvida',
+  'tenho uma dúvida',
+  'pode me ajudar',
+  'preciso saber',
+  'como funciona',
+  'me ajuda',
+  'ajuda',
+  'duvida',
+  'dúvida'
+];
+const CATALOG_INTENT_KEYWORDS = [
+  'catalogo',
+  'catálogo',
+  'ver produtos',
+  'quero ver',
+  'mostrar produtos',
+  'produtos'
+];
+
+let socketRef = null;
+
+export function initRouter(sock) {
+  socketRef = sock;
+
+  global.sendWhatsApp = async (chatId, texto, opcoes = {}) => {
+    if (!socketRef) {
+      throw new Error('Socket não inicializado para envio de mensagens.');
+    }
+
+    if (!chatId || !texto) {
+      throw new Error('sendWhatsApp requer chatId e texto.');
+    }
+
+    const payload = opcoes.image
+      ? { image: opcoes.image, caption: texto }
+      : { text: texto };
+
+    await socketRef.sendMessage(chatId, payload);
+  };
+}
+
+function extractProductId(text) {
+  const patterns = [
+    /^produto\s+(\d+)/i,
+    /^ver\s+(\d+)/i,
+    /^item\s+(\d+)/i,
+    /^(\d+)$/
+  ];
+
+  for (const pattern of patterns) {
+    const match = text.trim().match(pattern);
+    if (match && match[1]) {
+      const id = Number(match[1]);
+      if (id > 0 && id < 100) {
+        return id;
+      }
+    }
+  }
+  return null;
+}
+
+function matchesGreeting(normalized) {
+  return GREETING_KEYWORDS.some((keyword) => normalized === keyword);
+}
+
+function matchesMenu(normalized) {
+  return MENU_KEYWORDS.some((keyword) => normalized.includes(keyword));
+}
+
+function matchesHuman(normalized) {
+  return HUMAN_KEYWORDS.some((keyword) => normalized.includes(keyword));
+}
+
+function matchesIAIntent(normalized) {
+  return IA_INTENT_KEYWORDS.some((keyword) => normalized.includes(keyword));
+}
+
+function matchesCatalogIntent(normalized) {
+  return CATALOG_INTENT_KEYWORDS.some((keyword) => normalized.includes(keyword));
+}
+
+export async function handleIncomingMessage({ from, message }) {
+  if (!socketRef) {
+    throw new Error('Router não inicializado. Chame initRouter(sock) antes de processar mensagens.');
+  }
+
+  // FILTRO: Ignora grupos (segurança dupla)
+  if (from.endsWith('@g.us')) {
+    logger.info({ from }, '⛔ Router: Grupo detectado e ignorado');
+    return;
+  }
+
+  const text = (message || '').trim();
+  if (!text) {
+    logger.debug({ from }, 'Mensagem vazia ignorada.');
+    return;
+  }
+
+  const normalized = normalizeText(text);
+
+  // 1. ATALHO GLOBAL: Detecta palavras-chave para voltar ao menu (funciona em qualquer momento)
+  if (matchesMenu(normalized)) {
+    await global.sendWhatsApp(from, WELCOME_MESSAGE);
+    logger.info({ from }, '🔙 Retorno ao menu solicitado.');
+    return;
+  }
+
+  // 2. ATALHO GLOBAL: Detecta solicitação de atendente humano (funciona em qualquer momento)
+  if (matchesHuman(normalized)) {
+    await transferToHuman(from);
+    logger.info({ from }, '👤 Transferência para humano solicitada.');
+    return;
+  }
+
+  // 3. Detecta "0" para voltar ao menu principal
+  if (normalized === '0') {
+    await global.sendWhatsApp(from, WELCOME_MESSAGE);
+    logger.info({ from }, 'Retorno ao menu principal solicitado via "0".');
+    return;
+  }
+
+  // 4. Detecta saudações e envia menu inicial
+  if (matchesGreeting(normalized)) {
+    logger.info({ from, normalized }, '✅ Saudação detectada! Enviando menu...');
+    await global.sendWhatsApp(from, WELCOME_MESSAGE);
+    logger.info({ from }, '📋 Menu inicial enviado com sucesso!');
+    return;
+  }
+
+  // 5. Opção "1" → IA
+  if (normalized === '1') {
+    const iaInstructions = `Perfeito! Estou aqui para responder suas dúvidas.
+
+💡 *Dica:* A qualquer momento você pode:
+• Digite *menu* para voltar ao menu principal
+• Digite *atendente* para falar com um humano
+
+O que você gostaria de saber?`;
+    
+    await global.sendWhatsApp(from, iaInstructions);
+    logger.info({ from }, 'Usuário direcionado para IA via opção 1.');
+    return;
+  }
+
+  // 6. Opção "2" → Catálogo
+  if (normalized === '2') {
+    await sendCatalogMenu(from);
+    logger.info({ from }, 'Catálogo enviado via opção 2.');
+    return;
+  }
+
+  // 7. Opção "3" → Atendente humano
+  if (normalized === '3') {
+    await transferToHuman(from);
+    return;
+  }
+
+  // 8. Detecta frases relacionadas a dúvidas → IA
+  if (matchesIAIntent(normalized)) {
+    await handleIA(text, from);
+    logger.info({ from }, 'Pergunta direcionada automaticamente para IA.');
+    return;
+  }
+
+  // 9. Detecta frases relacionadas ao catálogo
+  if (matchesCatalogIntent(normalized)) {
+    await sendCatalogMenu(from);
+    logger.info({ from }, 'Catálogo enviado por detecção de intent.');
+    return;
+  }
+
+  // 10. Detecta "produto X", "ver X", "item X" ou apenas números de produtos
+  const productId = extractProductId(text);
+  if (productId) {
+    await sendProductById(from, productId);
+    logger.info({ from, productId }, 'Produto específico enviado.');
+    return;
+  }
+
+  // 11. Fallback: envia para IA se não corresponder a nenhum fluxo
+  await handleIA(text, from);
+  logger.info({ from }, 'Mensagem enviada para IA como fallback.');
+}
