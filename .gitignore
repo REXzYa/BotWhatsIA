@@ -67,11 +67,27 @@ tmp/
 # PM2
 .pm2/
 pm2.log
+
+# Arquivos de Teste (internos)
 test-automatizado.js
 test-contexto.js
 test-produto.js
-MELHORIAS.md
+
+# Documentação Interna (não publicar)
 CHECKLIST-PUBLICACAO.md
+COMERCIAL.md
+COMO-TORNAR-PUBLICO.md
+EXECUTAR-AGORA.md
+GUIA-PUBLICACAO-GITHUB.md
+INSTALACAO-MODULO-IA.md
+MELHORIAS.md
+README-ORIGINAL-BACKUP.md
+README-VENDAS.md
+RESUMO-PUBLICACAO.md
+STATUS-IMPLEMENTACAO.md
+TESTE-LICENCAS.md
+criar-repo-ia-privado.ps1
+preparar-versao-publica.ps1
 estrutura-pastas.txt
 GUIA-PUBLICACAO-GITHUB.md
 INSTALACAO-MODULO-IA.md
